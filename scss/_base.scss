@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $primary-dark;
+}
+
+.wrapper {
+  display: flex;
+  flex-basis: $wrapper-width;
+  justify-content: space-between;
+  padding: $main-spacing;
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    flex-basis: $wrapper-width-sm;
+    flex-direction: column;
+  }
+  @media screen and (max-width: map-get($breakpoints, xs)) {
+    flex-basis: 100%;
+    padding: $main-spacing / 2;
+  }
+
+  .section {
+    flex-basis: 50%;
+    @media screen and (max-width: map-get($breakpoints, xs)) {
+      flex-basis: 100%;
+    }
+  }
+
+  .section--right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media screen and (max-width: map-get($breakpoints, md)) {
+      width: 532px;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: map-get($breakpoints, xs)) {
+      width: 100%;
+    }
+
+    .section__card {
+      width: 268px;
+      min-height: 240px;
+      border-radius: $border-radius;
+      text-align: center;
+      margin: 0 24px 31px 0;
+      background-color: $secondary-dark;
+      @media screen and (max-width: map-get($breakpoints, md)) {
+        width: 240px;
+        min-height: 218px;
+        margin: 0 16px 16px 0;
+      }
+      @media screen and (max-width: map-get($breakpoints, xs)) {
+        width: 95%;
+        margin-right: 0;
+        border-radius: $border-radius-mobile;
+      }
+
+      .section__card-text {
+        opacity: 0.5;
+        width: 87%;
+        margin: -3% auto 0;
+        @media screen and (max-width: map-get($breakpoints, sm)) {
+          @include p-small;
+        }
+      }
+
+      .section__card__icon {
+        width: 64px;
+        height: 64px;
+        margin: 24px auto 0;
+        border-radius: $border-radius-mobile;
+        background-color: rgba($color: $primary-pink, $alpha: 0.2);
+        position: relative;
+        @media screen and (max-width: map-get($breakpoints, sm)) {
+          width: 56px;
+          height: 56px;
+        }
+
+        .section__card__icon-image {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 32px;
+          width: auto;
+          @media screen and (max-width: map-get($breakpoints, sm)) {
+            height: 28px;
+          }
+        }
+      }
+      .section__card__icon--vr {
+        background-color: rgba($color: $primary-blue, $alpha: 0.2);
+      }
+      .section__card__icon--tech {
+        background-color: rgba($color: $primary-green, $alpha: 0.2);
+      }
+      .section__card__icon--ai {
+        background-color: rgba($color: $primary-yellow, $alpha: 0.2);
+      }
+    }
+  }
+  .section--left {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    .section__container {
+      width: 467px;
+      @media screen and (max-width: map-get($breakpoints, sm)) {
+        width: 496px;
+      }
+      @media screen and (max-width: map-get($breakpoints, xs)) {
+        width: 95%;
+      }
+    }
+    h1 {
+      margin-top: 0;
+      font-weight: 500;
+      @media screen and (max-width: map-get($breakpoints, xs)) {
+        font-size: 32px;
+        line-height: 40px;
+        padding-top: $main-spacing;
+      }
+    }
+  }
+}
